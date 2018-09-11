@@ -1,3 +1,7 @@
 name: android-app-framework
 version: 0.1.0
 description: Android Application framework
+
+deps:
+  jphp-runtime: '*'
+  jphp-android-ext: '*'
