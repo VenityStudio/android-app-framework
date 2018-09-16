@@ -36,7 +36,7 @@ abstract class AbstractActivity extends UXView
         $toast = new UXToast();
         $toast->text = $msg;
         $toast->duration = $duration;
-        $this->show();
+        $toast->show();
 
         return $toast;
     }
