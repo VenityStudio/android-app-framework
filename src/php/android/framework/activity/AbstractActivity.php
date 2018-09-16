@@ -2,6 +2,7 @@
 
 namespace php\android\framework\activity;
 
+use php\android\framework\AndroidApplication;
 use php\android\UXAppBar;
 use php\android\UXToast;
 use php\android\UXView;
@@ -21,8 +22,14 @@ abstract class AbstractActivity extends UXView
      */
     abstract public function onUpdateAppBar(UXAppBar $appBar) : void;
 
+    /**
+     * @var AndroidApplication
+     */
+    protected $_app;
+
     public function __construct() {
         parent::__construct($this->getName() ?? "home");
+        $this->_app = AndroidApplication::get();
         $this->setOnUpdateAppBar([$this, "onUpdateAppBar"]);
         $this->loadFXML(str::replace(get_class($this), "\\", "/") . ".fxml");
     }
